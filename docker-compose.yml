@@ -1,0 +1,17 @@
+networks:
+  pronto:
+    name: '${NETWORK_NAME:-pronto_net}'
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: '${APP_NAME:-pronto}-redis'
+    ports:
+      - '${REDIS_HOST_PORT:-6379}:6379'
+    networks: [pronto]
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
