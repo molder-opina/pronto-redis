@@ -1,0 +1,20 @@
+# Redis data
+dump.rdb
+appendonly.aof
+*.rdb
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Logs
+*.log
+
+# Secrets
+*.pem
+*.key
+
+# OS
+.DS_Store
+Thumbs.db
